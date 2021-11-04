@@ -18,8 +18,7 @@ class NeopixelPlugin(octoprint.plugin.StartupPlugin,
         def get_api_commands(self):
                return dict(
                       lighton=[],
-                      lightoff=[],
-                      light=[]
+                      lightoff=[]
                       )
 
         def on_api_command(self, command, data):

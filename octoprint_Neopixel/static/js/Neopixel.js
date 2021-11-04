@@ -9,17 +9,7 @@ $(function() {
         var self = this;
 
 		self.settingsViewModel = parameters[0];
-		self.light = ko.observable();
 		self.onAfterBinding = function() {
-			$.ajax({
-				url: API_BASEURL + "plugin/neopixel",
-				type: "POST",
-				dataType: "json",
-				data: JSON.stringify({
-                    command: "light"
-                }),
-                contentType: "application/json; charset=UTF-8"
-            })
             self.btnclass = ko.pureComputed(function() {
                 return self.streaming() ? 'btn-danger' : 'btn-primary';
             });
@@ -27,7 +17,7 @@ $(function() {
 
         self.lightOn = function() {
             $.ajax({
-                url: API_BASEURL + "plugin/neopixel",
+                url: API_BASEURL + "plugin/Neopixel/",
                 type: "POST",
                 dataType: "json",
                 data: JSON.stringify({
@@ -38,7 +28,7 @@ $(function() {
         }
         self.lightOff = function() {
             $.ajax({
-                url: API_BASEURL + "plugin/neopixel",
+                url: API_BASEURL + "plugin/Neopixel/",
                 type: "POST",
                 dataType: "json",
                 data: JSON.stringify({
