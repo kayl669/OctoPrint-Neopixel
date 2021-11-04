@@ -16,37 +16,38 @@ $(function() {
 				type: "POST",
 				dataType: "json",
 				data: JSON.stringify({
-				command: "light"
-			}),
-			contentType: "application/json; charset=UTF-8"
-		})
-		self.btnclass = ko.pureComputed(function() {
-			return self.streaming() ? 'btn-danger' : 'btn-primary';
-		});
-	}
+                    command: "light"
+                }),
+                contentType: "application/json; charset=UTF-8"
+            })
+            self.btnclass = ko.pureComputed(function() {
+                return self.streaming() ? 'btn-danger' : 'btn-primary';
+            });
+    	}
 
-	 self.lightOn = function() {
-        $.ajax({
-            url: API_BASEURL + "plugin/neopixel",
-            type: "POST",
-            dataType: "json",
-            data: JSON.stringify({
-                     command: "lighton"
-            }),
-            contentType: "application/json; charset=UTF-8"
-        })
+        self.lightOn = function() {
+            $.ajax({
+                url: API_BASEURL + "plugin/neopixel",
+                type: "POST",
+                dataType: "json",
+                data: JSON.stringify({
+                         command: "lighton"
+                }),
+                contentType: "application/json; charset=UTF-8"
+            })
+        }
+        self.lightOff = function() {
+            $.ajax({
+                url: API_BASEURL + "plugin/neopixel",
+                type: "POST",
+                dataType: "json",
+                data: JSON.stringify({
+                    command: "lightoff"
+                }),
+                contentType: "application/json; charset=UTF-8"
+            })
+        }
     }
-	self.lightOff = function() {
-		$.ajax({
-			url: API_BASEURL + "plugin/neopixel",
-			type: "POST",
-			dataType: "json",
-			data: JSON.stringify({
-				command: "lightoff"
-			}),
-			contentType: "application/json; charset=UTF-8"
-		})
-	}
 
     /* view model class, parameters for constructor, container to bind to
      * Please see http://docs.octoprint.org/en/master/plugins/viewmodels.html#registering-custom-viewmodels for more details
