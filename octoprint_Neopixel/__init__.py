@@ -26,12 +26,9 @@ class NeopixelPlugin(octoprint.plugin.StartupPlugin,
             if command == "lighton":
                     self._logger.info("light on called")
                     os.system("sudo ./lighton")
-                    return flask.jsonify(result="lighton")
             elif command == "lightoff":
                     self._logger.info("light off called")
                     os.system("sudo ./lightoff")
-                    return flask.jsonify(result="lightoff")
-            return flask.jsonify(result="Unknown")
 
         def on_api_get(self, request):
                return flask.jsonify(foo="bar")

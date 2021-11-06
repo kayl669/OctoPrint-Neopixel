@@ -17,25 +17,27 @@ $(function() {
 
         self.lightOn = function() {
             $.ajax({
-                url: API_BASEURL + "plugin/Neopixel/",
+                url: API_BASEURL + "plugin/"+PLUGIN_ID,
                 type: "POST",
                 dataType: "json",
                 data: JSON.stringify({
-                         command: "lighton"
+                   command: "lighton"
                 }),
                 contentType: "application/json; charset=UTF-8"
-            })
+            }).done(function(data){
+            }).always(function(){});
         }
         self.lightOff = function() {
             $.ajax({
-                url: API_BASEURL + "plugin/Neopixel/",
+                url: API_BASEURL + "plugin/"+PLUGIN_ID,
                 type: "POST",
                 dataType: "json",
                 data: JSON.stringify({
                     command: "lightoff"
                 }),
                 contentType: "application/json; charset=UTF-8"
-            })
+            }).done(function(data){
+            }).always(function(){});
         }
     }
 
