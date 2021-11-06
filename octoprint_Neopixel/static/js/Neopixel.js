@@ -7,7 +7,7 @@
 $(function() {
     function NeopixelViewModel(parameters) {
         var self = this;
-
+        var PLUGIN_ID = "Neopixel";
 		self.settingsViewModel = parameters[0];
 		self.onAfterBinding = function() {
             self.btnclass = ko.pureComputed(function() {
